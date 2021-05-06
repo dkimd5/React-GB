@@ -10,6 +10,22 @@ export default function MessageField(props) {
       ]
    )
 
+
+
+   const sendMessage = () => {
+      const inputValue = document.getElementById("author").value;
+      const textareaValue = document.getElementById("text").value;
+      setMessage(prev => [...prev, { [inputValue]: textareaValue }])
+   }
+
+
+   // handleSubmit = event => {
+   //    const inputValue = document.getElementById("author").value;
+   //    const textareaValue = document.getElementById("text").value;
+   //    setMessage(prev => [...prev, { inputValue: textareaValue }]);
+   //    event.preventDefault();
+   // }
+
    const messageElements = message.map((msg, index) => {
       for (let key in msg) {
          return <Message key={ index } author={ key } text={ msg[key] } />
@@ -18,18 +34,18 @@ export default function MessageField(props) {
 
    return (
       <>
-         <form>
-            <div>
-               <label>Username: </label>
-               <input />
-            </div>
-            <div>
-               <label>Message: </label>
-               <textarea></textarea>
-            </div>
-            <button>Send Message</button>
-         </form>
-         {messageElements }
+         {/* <form onSubmit={ handleSubmit }> */ }
+         <div>
+            <label>Username: </label>
+            <input id="author" type="text" />
+         </div>
+         <div>
+            <label>Message: </label>
+            <textarea id="text"></textarea>
+         </div>
+         <button type="submit" onClick={ sendMessage }>Send Message</button>
+         {/* </form> */ }
+         { messageElements }
       </>
    )
 }
