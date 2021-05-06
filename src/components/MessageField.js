@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Message from "./Message";
 
 export default function MessageField(props) {
@@ -10,13 +10,19 @@ export default function MessageField(props) {
       ]
    )
 
-
-
    const sendMessage = () => {
       const inputValue = document.getElementById("author").value;
       const textareaValue = document.getElementById("text").value;
       setMessage(prev => [...prev, { [inputValue]: textareaValue }])
    }
+
+   useEffect(() => {
+      if (message.length % 2 === 1) {
+         setTimeout(() => (
+            setMessage(prev => [...prev, { Robot: `Hello ${Object.keys(message[message.length - 1])}` }])
+         ), 1000);
+      }
+   }, [message]);
 
 
    // handleSubmit = event => {
