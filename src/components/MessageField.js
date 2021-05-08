@@ -1,57 +1,29 @@
-import React, { useEffect, useState } from "react";
-import Message from "./Message";
+import React, { useEffect, useState, useRef } from "react";
+import { AUTHORS } from "./utils/constants";
 
-export default function MessageField(props) {
+export const MessageField = ({ onAddMessage }) => {
 
-   const [message, setMessage] = useState(
-      [
-         { noName: "First one" },
-         { noName2: "Second one" }
-      ]
-   )
+   const [value, setValue] = useState('');
+   const input = useRef();
 
-   const sendMessage = () => {
-      const inputValue = document.getElementById("author").value;
-      const textareaValue = document.getElementById("text").value;
-      setMessage(prev => [...prev, { [inputValue]: textareaValue }])
+   const handleChange = (e) => {
+      setValue(e.target.value);
+   }
+
+   const handleSubmit = (e) => {
+      e.preventDefault();
+      onAddMessage({ author: AUTHORS.HUMAN, text: value });
+      setValue('');
    }
 
    useEffect(() => {
-      if (message.length % 2 === 1) {
-         setTimeout(() => (
-            setMessage(prev => [...prev, { Robot: `Hello ${Object.keys(message[message.length - 1])}` }])
-         ), 1000);
-      }
-   }, [message]);
-
-
-   // handleSubmit = event => {
-   //    const inputValue = document.getElementById("author").value;
-   //    const textareaValue = document.getElementById("text").value;
-   //    setMessage(prev => [...prev, { inputValue: textareaValue }]);
-   //    event.preventDefault();
-   // }
-
-   const messageElements = message.map((msg, index) => {
-      for (let key in msg) {
-         return <Message key={ index } author={ key } text={ msg[key] } />
-      }
-   })
+      input.current.focus();
+   }, [])
 
    return (
-      <>
-         {/* <form onSubmit={ handleSubmit }> */ }
-         <div>
-            <label>Username: </label>
-            <input id="author" type="text" />
-         </div>
-         <div>
-            <label>Message: </label>
-            <textarea id="text"></textarea>
-         </div>
-         <button type="submit" onClick={ sendMessage }>Send Message</button>
-         {/* </form> */ }
-         { messageElements }
-      </>
+      <form onSubmit={ handleSubmit } >
+         <input type="text" value={ value } ref={ input } onChange={ handleChange } />
+         <input type="submit" />
+      </form>
    )
 }

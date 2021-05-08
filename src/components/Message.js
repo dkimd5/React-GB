@@ -1,6 +1,6 @@
 import React from "react";
 
-const Message = (props) => {
+export const Message = (props) => {
    return (
       <>
       <span>{ props.author }</span>
@@ -8,5 +8,3 @@ const Message = (props) => {
       </>
    )
 }
-
-export default Message;
