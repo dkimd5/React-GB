@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { MessageField } from "./MessageField";
-import { AUTHORS } from "./utils/constants";
+import { MessageField } from "./messageField/MessageField";
+import { AUTHORS } from "./_utils/constants";
 
 const initialMessages = [
   { author: AUTHORS.HUMAN, text: "Peace" },
