@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { AUTHORS } from "../_utils/constants";
+import { AUTHORS } from "../../_utils/constants";
 
 export const MessageField = ({ onAddMessage }) => {
 
