@@ -1,2 +1,2 @@
 # React-GB
-https://github.com/dkimd5/React-GB/build/
+check it out here: [demo](https://dkimd5.github.io/React-GB//build/)
