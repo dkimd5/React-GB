@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { AUTHORS } from "../../_utils/constants";
+import "./chatField.scss";
 
 
-export const ChatField = ({ messages }) => {
+export const ChatField = ({ messages, handleAddMessage }) => {
 
    useEffect(() => {
       if (!messages.length) { return }
@@ -14,12 +15,12 @@ export const ChatField = ({ messages }) => {
    }, [messages]);
 
    const messageRender = messages.map((message, index) => (
-      <li key={ index }>{ message.author }: { message.text }</li>
+      <li className={ `item-list ${message.author === AUTHORS.HUMAN ? "human" : "bot"}` } key={ index }>{ message.author }: { message.text }</li>
    ));
 
    return (
       <>
-         <ul>
+         <ul className="messages-list">
             { messageRender }
          </ul>
       </>

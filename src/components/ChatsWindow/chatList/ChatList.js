@@ -3,43 +3,54 @@ import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import Avatar from '@material-ui/core/Avatar';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Divider from '@material-ui/core/Divider';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
    root: {
-      width: '100%',
-      maxWidth: 360,
-      backgroundColor: theme.palette.background.paper,
+      width: '20%',
+      height: '80vh',
+      padding: 0,
+      borderRight: '1px solid #f92056',
    },
-}));
+   icon: {
+      margin: '0 10px 0 30px',
+   },
+});
 
 export const ChatList = (props) => {
    const classes = useStyles();
-   const [selectedIndex, setSelectedIndex] = React.useState(1);
-
-   const handleListItemClick = (event, index) => {
-      setSelectedIndex(index);
-   };
 
    return (
-      <div className={ classes.root }>
-         <List component="nav" aria-label="secondary mailbox folder">
-            <ListItem
-               button
-               selected={ selectedIndex === 2 }
-               onClick={ (event) => handleListItemClick(event, 2) }
-            >
-               <ListItemText primary="Human1" />
-            </ListItem>
-            <Divider />
-            <ListItem
-               button
-               selected={ selectedIndex === 3 }
-               onClick={ (event) => handleListItemClick(event, 3) }
-            >
-               <ListItemText primary="Bot1" />
-            </ListItem>
-         </List>
-      </div>
+      <List className={ classes.root }>
+         <ListItem
+            button
+         >
+            <ListItemAvatar>
+               <Avatar alt="Remy Sharp" src="https://material-ui.com/static/images/avatar/1.jpg" />
+            </ListItemAvatar>
+            <ListItemText primary="Human" />
+         </ListItem>
+         <Divider variant="middle" component="li" />
+         <ListItem
+            button
+         >
+            <ListItemAvatar>
+               <Avatar alt="Remy Sharp" src="https://material-ui.com/static/images/avatar/2.jpg" />
+            </ListItemAvatar>
+            <ListItemText primary="Bot" />
+         </ListItem>
+         <Divider variant="middle" component="li" />
+         <ListItem
+            button
+         >
+            <ListItemAvatar>
+               <Avatar alt="Remy Sharp" src="https://material-ui.com/static/images/avatar/3.jpg" />
+            </ListItemAvatar>
+            <ListItemText primary="Alex" />
+         </ListItem>
+         <Divider variant="middle" component="li" />
+      </List>
    );
 }

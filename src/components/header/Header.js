@@ -1,9 +1,10 @@
 import React from "react";
+import "./header.scss";
 
 export const Header = () => {
    return (
-      <>
-         <h1>React Messenger</h1>
-      </>
+      <div className="header">
+         <h1 className="header-text">React Messenger</h1>
+      </div>
    )
 }
