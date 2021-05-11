@@ -3,6 +3,7 @@ import { Header } from "./Header/Header";
 import { Messenger } from "./ChatsWindow/Messenger";
 import "./reset.css";
 import "./app.scss";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 
 export default function App() {
@@ -10,9 +11,18 @@ export default function App() {
 
 
   return (
-    <div className="container">
-      <Header />
-      <Messenger />
-    </div>
+    <Router>
+      <div className="container">
+        <Header />
+        <Switch>
+          <Route path="/" exact>
+            <Messenger />
+          </Route>
+          <Route path="/secondheader" exact>
+            <Header />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   )
 }

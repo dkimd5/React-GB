@@ -60,8 +60,8 @@ export const MessageField = ({ onAddMessage }) => {
          >
             Send
       </Button>
-         {/* <input type="text" value={ value } ref={ input } onChange={ handleChange } /> */ }
-         {/* < input type="submit" /> */ }
+         {/* <input type="text" value={ value } ref={ input } onChange={ handleChange } />
+         < input type="submit" /> */}
       </form>
    )
 }
