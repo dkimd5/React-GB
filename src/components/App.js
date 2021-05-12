@@ -15,7 +15,7 @@ export default function App() {
       <div className="container">
         <Header />
         <Switch>
-          <Route path="/" exact>
+          <Route path="/:chatId?" exact>
             <Messenger />
           </Route>
           <Route path="/secondheader" exact>

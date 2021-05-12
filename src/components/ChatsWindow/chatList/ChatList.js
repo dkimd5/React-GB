@@ -6,6 +6,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Avatar from '@material-ui/core/Avatar';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Divider from '@material-ui/core/Divider';
+import { Link } from 'react-router-dom';
+import './chatList.scss';
 
 const useStyles = makeStyles({
    root: {
@@ -19,38 +21,22 @@ const useStyles = makeStyles({
    },
 });
 
-export const ChatList = (props) => {
+export const ChatList = ({ chats }) => {
    const classes = useStyles();
 
    return (
       <List className={ classes.root }>
-         <ListItem
-            button
-         >
-            <ListItemAvatar>
-               <Avatar alt="Remy Sharp" src="https://material-ui.com/static/images/avatar/1.jpg" />
-            </ListItemAvatar>
-            <ListItemText primary="Human" />
-         </ListItem>
-         <Divider variant="middle" component="li" />
-         <ListItem
-            button
-         >
-            <ListItemAvatar>
-               <Avatar alt="Remy Sharp" src="https://material-ui.com/static/images/avatar/2.jpg" />
-            </ListItemAvatar>
-            <ListItemText primary="Bot" />
-         </ListItem>
-         <Divider variant="middle" component="li" />
-         <ListItem
-            button
-         >
-            <ListItemAvatar>
-               <Avatar alt="Remy Sharp" src="https://material-ui.com/static/images/avatar/3.jpg" />
-            </ListItemAvatar>
-            <ListItemText primary="Alex" />
-         </ListItem>
-         <Divider variant="middle" component="li" />
+         {chats.map((chat) => (
+            <Link to={ `${chat.id}` } key={ chat.id } className='chatlist-link'>
+               <ListItem button >
+                  <ListItemAvatar>
+                     <Avatar alt="Remy Sharp" src={ chat.avatar } />
+                  </ListItemAvatar>
+                  <ListItemText primary={ chat.name } />
+               </ListItem>
+               <Divider variant="middle" component="li" />
+            </Link>))
+         }
       </List>
    );
 }
