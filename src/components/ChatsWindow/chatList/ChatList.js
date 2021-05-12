@@ -27,7 +27,8 @@ export const ChatList = ({ chats }) => {
    return (
       <List className={ classes.root }>
          {chats.map((chat) => (
-            <Link to={ `${chat.id}` } key={ chat.id } className='chatlist-link'>
+
+            < Link to={ `/chat/${chat.id}` } key={ chat.id } className='chatlist-link link'>
                <ListItem button >
                   <ListItemAvatar>
                      <Avatar alt="Remy Sharp" src={ chat.avatar } />
@@ -35,8 +36,9 @@ export const ChatList = ({ chats }) => {
                   <ListItemText primary={ chat.name } />
                </ListItem>
                <Divider variant="middle" component="li" />
-            </Link>))
+            </Link>
+         ))
          }
-      </List>
+      </List >
    );
 }

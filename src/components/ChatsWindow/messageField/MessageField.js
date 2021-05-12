@@ -5,9 +5,8 @@ import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
    button: {
-      // margin: theme.spacing(1),
       padding: '16px',
    },
    textField: {

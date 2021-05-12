@@ -4,7 +4,7 @@ import { MessageField } from "./MessageField/MessageField"
 import { ChatField } from "./ChatField/ChatField";
 import { AUTHORS } from "../_utils/constants";
 import "./messenger.scss";
-import { useParams } from "react-router";
+import { useParams } from "react-router-dom";
 
 const initialMessages = {
    chat1: [
@@ -31,9 +31,7 @@ export const Messenger = () => {
 
    const [messages, setMessages] = useState(initialMessages);
 
-   const params = useParams();
-   console.log(params);
-   const { chatId } = params;
+   const { chatId } = useParams();
 
    const handleAddMessage = useCallback(newMessage => {
       setMessages(prevMessages => ({ ...prevMessages, [chatId]: [...prevMessages[chatId], newMessage] }));
@@ -43,7 +41,7 @@ export const Messenger = () => {
       <div className="messenger">
          <ChatList chats={ chats } />
          <div className="chat-msg-wrp">
-            <ChatField messages={ messages } chatId={chatId} handleAddMessage={ handleAddMessage } />
+            <ChatField messages={ messages } chatId={ chatId } handleAddMessage={ handleAddMessage } />
             <MessageField onAddMessage={ handleAddMessage } />
          </div>
       </div>

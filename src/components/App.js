@@ -4,10 +4,11 @@ import { Messenger } from "./ChatsWindow/Messenger";
 import "./reset.css";
 import "./app.scss";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Profile } from "./Profile/Profile";
 
 
 export default function App() {
-
+  //TODO: redirection
 
 
   return (
@@ -15,11 +16,14 @@ export default function App() {
       <div className="container">
         <Header />
         <Switch>
-          <Route path="/:chatId?" exact>
+          <Route path="/" exact>
             <Messenger />
           </Route>
-          <Route path="/secondheader" exact>
-            <Header />
+          <Route path="/chat/:chatId?" exact>
+            <Messenger />
+          </Route>
+          <Route path="/profile">
+            <Profile />
           </Route>
         </Switch>
       </div>

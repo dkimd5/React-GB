@@ -6,7 +6,7 @@ import "./chatField.scss";
 export const ChatField = ({ messages, chatId, handleAddMessage }) => {
 
    useEffect(() => {
-      if (!messages[chatId].length) { return }
+      if (!messages[chatId]?.length) { return }
 
       const lastMsg = messages[chatId][messages[chatId].length - 1];
       if (lastMsg.author === AUTHORS.HUMAN) {
@@ -14,14 +14,14 @@ export const ChatField = ({ messages, chatId, handleAddMessage }) => {
       }
    }, [messages]);
 
-   const messageRender = messages[chatId].map((message, index) => (
+   const messageRender = messages[chatId]?.map((message, index) => (
       <li className={ `item-list ${message.author === AUTHORS.HUMAN ? "human" : "bot"}` } key={ index }>{ message.author }: { message.text }</li>
    ));
 
    return (
       <>
          <ul className="messages-list">
-            { messageRender }
+            { chatId == undefined ? <h1>Choose chat</h1> : messageRender }
          </ul>
       </>
    )
