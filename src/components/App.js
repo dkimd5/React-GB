@@ -8,8 +8,6 @@ import { Profile } from "./Profile/Profile";
 
 
 export default function App() {
-  //TODO: redirection
-
 
   return (
     <Router>
@@ -19,7 +17,7 @@ export default function App() {
           <Route path="/" exact>
             <Messenger />
           </Route>
-          <Route path="/chat/:chatId?" exact>
+          <Route path="/chat/:chatId">
             <Messenger />
           </Route>
           <Route path="/profile">

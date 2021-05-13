@@ -4,7 +4,7 @@ import { MessageField } from "./MessageField/MessageField"
 import { ChatField } from "./ChatField/ChatField";
 import { AUTHORS } from "../_utils/constants";
 import "./messenger.scss";
-import { useParams } from "react-router-dom";
+import { Redirect, useParams } from "react-router-dom";
 
 const initialMessages = {
    chat1: [
@@ -36,6 +36,10 @@ export const Messenger = () => {
    const handleAddMessage = useCallback(newMessage => {
       setMessages(prevMessages => ({ ...prevMessages, [chatId]: [...prevMessages[chatId], newMessage] }));
    }, [chatId])
+
+   // if (!chatId || !messages[chatId]) {
+   //    return <Redirect to="/" />
+   // }
 
    return (
       <div className="messenger">
