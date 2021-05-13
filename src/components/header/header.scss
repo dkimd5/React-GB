@@ -1,0 +1,15 @@
+.header {
+   padding: 20px 0;
+
+   &-text {
+      font-size: 50px;
+      width: 100%;
+      text-align: center;
+      margin: 0 auto;
+      padding: 10px 0;
+      letter-spacing: 0.2em;
+      border: 1px solid;
+      border-image: linear-gradient(20deg, #f92056 38%, #00deff 65%);
+      border-image-slice: 1;
+   }
+}
