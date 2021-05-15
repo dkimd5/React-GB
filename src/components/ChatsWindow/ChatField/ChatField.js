@@ -3,25 +3,25 @@ import { AUTHORS } from "../../_utils/constants";
 import "./chatField.scss";
 
 
-export const ChatField = ({ messages, handleAddMessage }) => {
+export const ChatField = ({ messages, chatId, handleAddMessage }) => {
 
    useEffect(() => {
-      if (!messages.length) { return }
+      if (!messages[chatId]?.length) { return }
 
-      const lastMsg = messages[messages.length - 1];
+      const lastMsg = messages[chatId][messages[chatId].length - 1];
       if (lastMsg.author === AUTHORS.HUMAN) {
          handleAddMessage({ author: AUTHORS.BOT, text: `Hi, ${lastMsg.author}` })
       }
    }, [messages]);
 
-   const messageRender = messages.map((message, index) => (
+   const messageRender = messages[chatId]?.map((message, index) => (
       <li className={ `item-list ${message.author === AUTHORS.HUMAN ? "human" : "bot"}` } key={ index }>{ message.author }: { message.text }</li>
    ));
 
    return (
       <>
          <ul className="messages-list">
-            { messageRender }
+            { chatId == undefined ? <h1>Choose chat</h1> : messageRender }
          </ul>
       </>
    )
