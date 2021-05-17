@@ -1,9 +1,12 @@
 import React, { useEffect, useState, useRef } from "react";
-import { AUTHORS } from "../../_utils/constants";
+
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import { makeStyles } from '@material-ui/core/styles';
+
+import { useDispatch } from "react-redux";
+import { sendMessage } from "../../../store/messages/actions"
 
 const useStyles = makeStyles(() => ({
    button: {
@@ -15,12 +18,12 @@ const useStyles = makeStyles(() => ({
    },
 }));
 
-export const MessageField = ({ onAddMessage }) => {
+export const MessageField = () => {
 
    const classes = useStyles();
 
    const [value, setValue] = useState('');
-   // const input = useRef();
+   const dispatch = useDispatch();
 
    const handleChange = (e) => {
       setValue(e.target.value);
@@ -28,13 +31,9 @@ export const MessageField = ({ onAddMessage }) => {
 
    const handleSubmit = (e) => {
       e.preventDefault();
-      onAddMessage({ author: AUTHORS.HUMAN, text: value });
+      dispatch(sendMessage(value));
       setValue('');
    }
-
-   // useEffect(() => {
-   //    input.current.focus();
-   // }, [])
 
    return (
       <form onSubmit={ handleSubmit }>
@@ -45,7 +44,6 @@ export const MessageField = ({ onAddMessage }) => {
             multiline
             variant="outlined"
             value={ value }
-            // inputRef={ input }
             autoFocus={ true }
             onChange={ handleChange }
             className={ classes.textField }
@@ -59,8 +57,6 @@ export const MessageField = ({ onAddMessage }) => {
          >
             Send
       </Button>
-         {/* <input type="text" value={ value } ref={ input } onChange={ handleChange } />
-         < input type="submit" /> */}
       </form>
    )
 }

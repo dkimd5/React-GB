@@ -8,6 +8,7 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Divider from '@material-ui/core/Divider';
 import { Link } from 'react-router-dom';
 import './chatList.scss';
+import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles({
    root: {
@@ -23,6 +24,8 @@ const useStyles = makeStyles({
 
 export const ChatList = ({ chats }) => {
    const classes = useStyles();
+
+   const chats = useSelector((state) => state.)
 
    return (
       <List className={ classes.root }>
