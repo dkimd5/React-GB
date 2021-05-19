@@ -1,9 +1,9 @@
-export const ADD_CHAT = 'CHATLIST::ADD_CHAT';
-export const DELETE_CHAT = 'CHATLIST::DELETE_CHAT';
+export const ADD_CHAT = 'CHATS::ADD_CHAT';
+export const DELETE_CHAT = 'CHATS::DELETE_CHAT';
 
-export const addChat = title => ({
+export const addChat = newChat => ({
    type: ADD_CHAT,
-   title,
+   payload: newChat,
 });
 
 export const deleteChat = {

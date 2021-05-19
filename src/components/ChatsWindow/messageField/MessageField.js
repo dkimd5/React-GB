@@ -1,9 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import Icon from '@material-ui/core/Icon';
-import { makeStyles } from '@material-ui/core/styles';
+import { TextField, Button, Icon, makeStyles } from '@material-ui/core';
 
 import { useDispatch } from "react-redux";
 import { sendMessage } from "../../../store/messages/actions"

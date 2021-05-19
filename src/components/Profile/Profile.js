@@ -4,13 +4,13 @@ import { changeCountry } from "../../store/profile/actions";
 
 export const Profile = () => {
 
-   const country = useSelector(state => state.country);
+   const country = useSelector(state => state.profile.country);
    console.log(country);
-   // const dispatch = useDispatch();
+   const dispatch = useDispatch();
 
-   // const handleChange = () => {
-   //    dispatch(changeCountry);
-   // };
+   const handleChange = () => {
+      dispatch(changeCountry);
+   };
 
    return (
       <>

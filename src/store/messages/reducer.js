@@ -1,4 +1,5 @@
 import { SEND_MESSAGE } from "./actions";
+import { ADD_CHAT, DELETE_CHAT } from "../chats/actions";
 import { AUTHORS } from "../../components/_utils/constants"
 
 const initialState = {
@@ -17,13 +18,19 @@ const initialState = {
 };
 
 export const messagesReducer = (state = initialState, action) => {
-   console.log(state, action);
    switch (action.type) {
       case SEND_MESSAGE: {
-         return [
+         return {
             ...state,
-
-         ]
+            [action.payload.chatId]:
+               [...state[action.payload.chatId], action.payload.message],
+         }
+      }
+      case ADD_CHAT: {
+         return {
+            ...state,
+            [action.payload.id]: [],
+         };
       }
       default:
          return state;

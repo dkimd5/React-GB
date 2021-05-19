@@ -5,7 +5,7 @@ import { chatsReducer } from "../chats/reducer";
 
 
 export const combRed = combineReducers({
-   profileReducer,
-   messagesReducer,
-   chatsReducer,
+   profile: profileReducer,
+   messages: messagesReducer,
+   chats: chatsReducer,
 });

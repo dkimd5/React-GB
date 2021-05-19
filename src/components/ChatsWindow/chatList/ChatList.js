@@ -1,14 +1,10 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Avatar from '@material-ui/core/Avatar';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Divider from '@material-ui/core/Divider';
+import React, { useState } from 'react';
+import { makeStyles, List, ListItem, ListItemText, Avatar, ListItemAvatar, Divider, TextField, Button } from '@material-ui/core';
+
 import { Link } from 'react-router-dom';
 import './chatList.scss';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { addChat } from '../../../store/chats/actions';
 
 const useStyles = makeStyles({
    root: {
@@ -22,26 +18,52 @@ const useStyles = makeStyles({
    },
 });
 
-export const ChatList = ({ chats }) => {
+export const ChatList = () => {
    const classes = useStyles();
 
-   const chats = useSelector((state) => state.)
+   const [value, setValue] = useState("");
+
+   const chats = useSelector((state) => state.chats.chatList);
+   console.log(chats);
+   const dispatch = useDispatch();
+
+   const handleChange = (e) => {
+      setValue(e.target.value);
+   }
+
+   const handleAddChat = () => {
+      if (value) {
+         dispatch(addChat({ name: value, id: Date.now() }));
+         setValue("");
+      }
+   };
 
    return (
-      <List className={ classes.root }>
-         {chats.map((chat) => (
+      <>
+         <List className={ classes.root }>
+            { chats.map((chat) => (
 
-            < Link to={ `/chat/${chat.id}` } key={ chat.id } className='chatlist-link link'>
-               <ListItem button >
-                  <ListItemAvatar>
-                     <Avatar alt="Remy Sharp" src={ chat.avatar } />
-                  </ListItemAvatar>
-                  <ListItemText primary={ chat.name } />
-               </ListItem>
-               <Divider variant="middle" component="li" />
-            </Link>
-         ))
-         }
-      </List >
+               < Link to={ `/chat/${chat.id}` } key={ chat.id } className='chatlist-link link'>
+                  <ListItem button >
+                     <ListItemAvatar>
+                        <Avatar alt="Remy Sharp" src={ chat.avatar } />
+                     </ListItemAvatar>
+                     <ListItemText primary={ chat.name } />
+                  </ListItem>
+                  <Divider variant="middle" component="li" />
+               </Link>
+            ))
+            }
+            <TextField value={ value } onChange={ handleChange } />
+            <Button
+               variant="contained"
+               color="primary"
+               onClick={ handleAddChat }
+            >
+               Add Chat
+               </Button>
+         </List >
+
+      </>
    );
 }

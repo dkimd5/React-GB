@@ -1,6 +1,9 @@
 export const SEND_MESSAGE = 'MESSAGES::SEND_MESSAGE';
 
-export const sendMessage = (message) => ({
+export const sendMessage = (newMessage, chatId) => ({
    type: SEND_MESSAGE,
-   message,
+   payload: {
+      message: newMessage,
+      chatId,
+   }
 })

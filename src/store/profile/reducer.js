@@ -5,7 +5,6 @@ const initialState = {
 };
 
 export const profileReducer = (state = initialState, action) => {
-   console.log("state: ", state, action);
    switch (action.type) {
       case CHANGE_COUNTRY: {
          return {
