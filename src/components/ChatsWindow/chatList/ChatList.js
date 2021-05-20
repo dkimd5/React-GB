@@ -24,7 +24,6 @@ export const ChatList = () => {
    const [value, setValue] = useState("");
 
    const chats = useSelector((state) => state.chats.chatList);
-   console.log(chats);
    const dispatch = useDispatch();
 
    const handleChange = (e) => {
