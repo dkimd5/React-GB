@@ -16,6 +16,6 @@ export const sendMessageWithThunk = (newMessage, chatId) => (dispatch, setState)
    if (newMessage.author !== AUTHORS.BOT) {
       setTimeout(() => {
          dispatch(sendMessage({ author: AUTHORS.BOT, text: "Beep boop, robot sounds" }, chatId));
-      }, 1000)
+      }, 3000)
    }
 }

@@ -16,6 +16,9 @@ const useStyles = makeStyles({
    icon: {
       margin: '0 10px 0 30px',
    },
+   newMsg: {
+      backgroundColor: 'aqua',
+   }
 });
 
 export const ChatList = () => {
@@ -23,7 +26,9 @@ export const ChatList = () => {
 
    const [value, setValue] = useState("");
 
-   const chats = useSelector((state) => state.chats.chatList);
+   const chats = useSelector(state => state.chats.chatList);
+   const newMessageChatId = useSelector(state => state.chats.newMessageChatId);
+   console.log(newMessageChatId);
    const dispatch = useDispatch();
 
    const handleChange = (e) => {
@@ -37,13 +42,14 @@ export const ChatList = () => {
       }
    };
 
+   // ${newMessageChatId === chat.id ? "newMsg" : ""}
+
    return (
       <>
          <List className={ classes.root }>
             { chats.map((chat) => (
-
                < Link to={ `/chat/${chat.id}` } key={ chat.id } className='chatlist-link link'>
-                  <ListItem button >
+                  <ListItem button className={ `${newMessageChatId === chat.id ? classes.newMsg : ""}` }>
                      <ListItemAvatar>
                         <Avatar alt="Remy Sharp" src={ chat.avatar } />
                      </ListItemAvatar>
