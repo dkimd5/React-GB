@@ -3,7 +3,8 @@ import React, { useEffect, useState, useRef } from "react";
 import { TextField, Button, Icon, makeStyles } from '@material-ui/core';
 
 import { useDispatch } from "react-redux";
-import { sendMessage } from "../../../store/messages/actions"
+import { sendMessage } from "../../../store/messages/actions";
+import { AUTHORS } from "../../_utils/constants";
 
 const useStyles = makeStyles(() => ({
    button: {
@@ -15,7 +16,7 @@ const useStyles = makeStyles(() => ({
    },
 }));
 
-export const MessageField = () => {
+export const MessageField = ({chatId}) => {
 
    const classes = useStyles();
 
@@ -28,9 +29,11 @@ export const MessageField = () => {
 
    const handleSubmit = (e) => {
       e.preventDefault();
-      dispatch(sendMessage(value));
+      dispatch(sendMessage({ author: AUTHORS.HUMAN, text: value }, chatId));
       setValue('');
    }
+
+   // console.log(value);
 
    return (
       <form onSubmit={ handleSubmit }>

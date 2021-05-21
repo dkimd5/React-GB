@@ -14,7 +14,7 @@ export const Messenger = () => {
          <ChatList />
          <div className="chat-msg-wrp">
             <ChatField chatId={ chatId } />
-            <MessageField />
+            <MessageField chatId={ chatId }/>
          </div>
       </div>
    )
