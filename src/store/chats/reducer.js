@@ -23,6 +23,21 @@ export const chatsReducer = (state = initialState, action) => {
             ...state,
             newMessageChatId: action.payload.chatId,
          }
+      };
+      case DELETE_CHAT: {
+         const chatIndex = [...state.chatList].map((chat, i) => {
+            console.log(chat.id, action.payload);
+            console.log(chat.id === action.payload)
+            if (chat.id === action.payload) {
+
+               return i;
+            }
+         });
+         console.log(chatIndex);
+         return {
+            ...state,
+            chatList: [...state.chatList.splice(chatIndex, 1)]
+         }
       }
       default:
          return state;

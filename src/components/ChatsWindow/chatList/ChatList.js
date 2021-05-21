@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { makeStyles, List, ListItem, ListItemText, Avatar, ListItemAvatar, Divider, TextField, Button } from '@material-ui/core';
+import { makeStyles, List, ListItem, ListItemText, Avatar, ListItemAvatar, Divider, TextField, Button, IconButton } from '@material-ui/core';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 import { Link } from 'react-router-dom';
 import './chatList.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { addChat } from '../../../store/chats/actions';
+import { addChat, deleteChat } from '../../../store/chats/actions';
 
 const useStyles = makeStyles({
    root: {
@@ -21,14 +22,13 @@ const useStyles = makeStyles({
    }
 });
 
-export const ChatList = () => {
+export const ChatList = ({ chatId }) => {
    const classes = useStyles();
 
    const [value, setValue] = useState("");
 
    const chats = useSelector(state => state.chats.chatList);
    const newMessageChatId = useSelector(state => state.chats.newMessageChatId);
-   console.log(newMessageChatId);
    const dispatch = useDispatch();
 
    const handleChange = (e) => {
@@ -42,7 +42,9 @@ export const ChatList = () => {
       }
    };
 
-   // ${newMessageChatId === chat.id ? "newMsg" : ""}
+   const handleDeleteChat = () => {
+      dispatch(deleteChat(chatId));
+   }
 
    return (
       <>
@@ -54,6 +56,9 @@ export const ChatList = () => {
                         <Avatar alt="Remy Sharp" src={ chat.avatar } />
                      </ListItemAvatar>
                      <ListItemText primary={ chat.name } />
+                     <IconButton aria-label="delete" onClick={ handleDeleteChat }>
+                        <DeleteIcon />
+                     </IconButton>
                   </ListItem>
                   <Divider variant="middle" component="li" />
                </Link>

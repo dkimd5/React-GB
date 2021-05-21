@@ -21,7 +21,7 @@ export const Messenger = () => {
 
    return (
       <div className="messenger">
-         <ChatList />
+         <ChatList chatId={ chatId } />
          <div className="chat-msg-wrp">
             <ChatField chatId={ chatId } />
             <MessageField onAddMessage={handleAddMessage}/>
