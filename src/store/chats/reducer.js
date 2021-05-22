@@ -25,18 +25,14 @@ export const chatsReducer = (state = initialState, action) => {
          }
       };
       case DELETE_CHAT: {
-         const chatIndex = [...state.chatList].map((chat, i) => {
-            console.log(chat.id, action.payload);
-            console.log(chat.id === action.payload)
-            if (chat.id === action.payload) {
+         const chatIndex = [...state.chatList].findIndex(chat => chat.id === action.payload);
 
-               return i;
-            }
-         });
-         console.log(chatIndex);
+         const newChatList = [...state.chatList];
+         newChatList.splice(chatIndex, 1);
+
          return {
             ...state,
-            chatList: [...state.chatList.splice(chatIndex, 1)]
+            chatList: newChatList,
          }
       }
       default:

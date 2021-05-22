@@ -42,9 +42,9 @@ export const ChatList = ({ chatId }) => {
       }
    };
 
-   const handleDeleteChat = () => {
-      dispatch(deleteChat(chatId));
-   }
+   // const handleDeleteChat = () => {
+   //    dispatch(deleteChat(chatId));
+   // }
 
    return (
       <>
@@ -56,7 +56,7 @@ export const ChatList = ({ chatId }) => {
                         <Avatar alt="Remy Sharp" src={ chat.avatar } />
                      </ListItemAvatar>
                      <ListItemText primary={ chat.name } />
-                     <IconButton aria-label="delete" onClick={ handleDeleteChat }>
+                     <IconButton aria-label="delete" onClick={ () => { dispatch(deleteChat(chat.id)) } }>
                         <DeleteIcon />
                      </IconButton>
                   </ListItem>
