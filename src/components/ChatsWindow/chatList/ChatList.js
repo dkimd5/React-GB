@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { makeStyles, List, ListItem, ListItemText, Avatar, ListItemAvatar, Divider, TextField, Button } from '@material-ui/core';
+import { makeStyles, List, ListItem, ListItemText, Avatar, ListItemAvatar, Divider, TextField, Button, IconButton } from '@material-ui/core';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 import { Link } from 'react-router-dom';
 import './chatList.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { addChat } from '../../../store/chats/actions';
+import { addChat, deleteChat } from '../../../store/chats/actions';
 
 const useStyles = makeStyles({
    root: {
@@ -16,15 +17,18 @@ const useStyles = makeStyles({
    icon: {
       margin: '0 10px 0 30px',
    },
+   newMsg: {
+      backgroundColor: 'aqua',
+   }
 });
 
-export const ChatList = () => {
+export const ChatList = ({ chatId }) => {
    const classes = useStyles();
 
    const [value, setValue] = useState("");
 
-   const chats = useSelector((state) => state.chats.chatList);
-   console.log(chats);
+   const chats = useSelector(state => state.chats.chatList);
+   const newMessageChatId = useSelector(state => state.chats.newMessageChatId);
    const dispatch = useDispatch();
 
    const handleChange = (e) => {
@@ -38,17 +42,23 @@ export const ChatList = () => {
       }
    };
 
+   // const handleDeleteChat = () => {
+   //    dispatch(deleteChat(chatId));
+   // }
+
    return (
       <>
          <List className={ classes.root }>
             { chats.map((chat) => (
-
                < Link to={ `/chat/${chat.id}` } key={ chat.id } className='chatlist-link link'>
-                  <ListItem button >
+                  <ListItem button className={ `${newMessageChatId === chat.id ? classes.newMsg : ""}` }>
                      <ListItemAvatar>
                         <Avatar alt="Remy Sharp" src={ chat.avatar } />
                      </ListItemAvatar>
                      <ListItemText primary={ chat.name } />
+                     <IconButton aria-label="delete" onClick={ () => { dispatch(deleteChat(chat.id)) } }>
+                        <DeleteIcon />
+                     </IconButton>
                   </ListItem>
                   <Divider variant="middle" component="li" />
                </Link>
