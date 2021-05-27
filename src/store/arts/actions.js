@@ -21,9 +21,16 @@ export const artFailure = (error) => ({
 
 export const getArt = () => async (dispatch) => {
    dispatch(artRequest());
+
    try {
       const response = await fetch(API_URL);
+
+      if (!response.ok) {
+         throw new Error("request failed with status " + response.status);
+       };
+
       const data = await response.json();
+
       dispatch(artSuccess(data));
    } catch (err) {
       dispatch(artFailure(err.message));
