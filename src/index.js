@@ -10,16 +10,16 @@ import { PersistGate } from 'redux-persist/integration/react'
 //    console.log("SW register success");
 // }
 
-window.addEventListener('load', async () => {
-   if ('serviceWorker' in navigator) {
-     try {
-       const reg = await navigator.serviceWorker.register('/src/sw.js')
-       console.log('Service worker register success', reg)
-     } catch (e) {
-       console.log('Service worker register fail')
-     }
-   }
- })
+if ('serviceWorker' in navigator) {
+   navigator.serviceWorker.register('./sw.js')
+      .then((reg) => {
+         // регистрация сработала
+         console.log('Registration succeeded. Scope is ' + reg.scope);
+      }).catch((error) => {
+         // регистрация прошла неудачно
+         console.log('Registration failed with ' + error);
+      });
+}
 
 ReactDOM.render(
    <Provider store={ store }>
