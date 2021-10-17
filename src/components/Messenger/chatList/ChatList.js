@@ -19,6 +19,12 @@ const useStyles = makeStyles({
    },
    newMsg: {
       backgroundColor: 'aqua',
+   },
+   addChatField: {
+      width: '50%',
+   },
+   addChatBtn: {
+      marginLeft: '10px'
    }
 });
 
@@ -64,14 +70,17 @@ export const ChatList = ({ chatId }) => {
                </Link>
             ))
             }
-            <TextField value={ value } onChange={ handleChange } />
-            <Button
-               variant="contained"
-               color="primary"
-               onClick={ handleAddChat }
-            >
-               Add Chat
+            <div className="addchat-wrp">
+               <TextField className={ classes.addChatField } value={ value } onChange={ handleChange } />
+               <Button
+                  className={ classes.addChatBtn }
+                  variant="contained"
+                  color="primary"
+                  onClick={ handleAddChat }
+               >
+                  Add Chat
                </Button>
+            </div>
          </List >
 
       </>

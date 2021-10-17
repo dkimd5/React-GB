@@ -34,7 +34,7 @@ export const MessageField = ({ onAddMessage }) => {
          <TextField
             id="outlined-textarea"
             label="Your message"
-            placeholder="Placeholder"
+            placeholder="Text your message here..."
             multiline
             variant="outlined"
             value={ value }
