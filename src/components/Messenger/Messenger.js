@@ -21,7 +21,7 @@ export const Messenger = () => {
 
    return (
       <div className="messenger">
-         <ChatList chatId={ chatId } />
+         <ChatList />
          <div className="chat-msg-wrp">
             <ChatField chatId={ chatId } />
             { chatId != undefined && <MessageField onAddMessage={ handleAddMessage } /> }
