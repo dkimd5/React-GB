@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router";
+import React from "react";
+import { useSelector } from "react-redux";
 import { AUTHORS } from "../../_utils/constants";
 import "./chatField.scss";
 
@@ -16,7 +15,7 @@ export const ChatField = ({ chatId }) => {
    return (
       <>
          <ul className="messages-list">
-            { chatId == undefined ? <h1>Choose chat</h1> : messageRender }
+            { chatId === undefined ? <h1 className="chats-header">Choose chat</h1> : messageRender }
          </ul>
       </>
    )

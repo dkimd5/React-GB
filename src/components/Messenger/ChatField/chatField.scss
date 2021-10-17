@@ -3,12 +3,14 @@
    flex-direction: column;
    overflow-y: scroll;
 }
+
 .item-list {
    max-width: 70%;
    flex-wrap: wrap;
    border: 1px solid black;
    padding: 5px;
 }
+
 .human {
    align-self: flex-end;
    text-align: right;
@@ -16,4 +18,12 @@
 
 .bot {
    align-self: flex-start;
+}
+
+.chats-header {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   margin-right: -50%;
+   transform: translate(-50%, -50%);
 }

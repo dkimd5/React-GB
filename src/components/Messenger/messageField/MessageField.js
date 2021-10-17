@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from "react";
+import React, { useState } from "react";
 
 import { TextField, Button, Icon, makeStyles } from '@material-ui/core';
 import { AUTHORS } from "../../_utils/constants";
@@ -50,7 +50,7 @@ export const MessageField = ({ onAddMessage }) => {
             endIcon={ <Icon>send</Icon> }
          >
             Send
-      </Button>
+         </Button>
       </form>
    )
 }
