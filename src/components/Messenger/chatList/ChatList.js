@@ -8,7 +8,7 @@ import { addChat, deleteChat } from '../../../store/chats/actions';
 
 const useStyles = makeStyles({
    root: {
-      width: '20%',
+      width: '30%',
       height: '80vh',
       padding: 0,
       borderRight: '1px solid #f92056',

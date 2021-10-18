@@ -9,7 +9,7 @@ const useStyles = makeStyles(() => ({
    },
    textField: {
       marginRight: '10px',
-      width: '89%',
+      width: '85%',
    },
 }));
 

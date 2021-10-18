@@ -1,4 +1,5 @@
 .messenger {
+   background: #fff;
    display: flex;
    height: 80vh;
    justify-content: space-between;
@@ -8,7 +9,7 @@
 }
 
 .chat-msg-wrp {
-   width: 80%;
+   width: 100%;
    display: flex;
    flex-direction: column;
    justify-content: space-between;
