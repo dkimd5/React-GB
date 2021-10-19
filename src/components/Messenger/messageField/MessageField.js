@@ -5,7 +5,8 @@ import { AUTHORS } from "../../_utils/constants";
 
 const useStyles = makeStyles(() => ({
    button: {
-      padding: '16px',
+      padding: '15.68px',
+      background: '#FF527C',
    },
    textField: {
       marginRight: '10px',
@@ -37,6 +38,8 @@ export const MessageField = ({ onAddMessage }) => {
             placeholder="Text your message here..."
             multiline
             variant="outlined"
+            color="secondary"
+            fullWidth="false"
             value={ value }
             autoFocus={ true }
             onChange={ handleChange }

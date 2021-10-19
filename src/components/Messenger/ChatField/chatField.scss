@@ -2,6 +2,11 @@
    display: flex;
    flex-direction: column;
    overflow-y: scroll;
+   margin-bottom: 10px;
+}
+
+.messages-list::-webkit-scrollbar {
+   width: 0;
 }
 
 .item-list {
