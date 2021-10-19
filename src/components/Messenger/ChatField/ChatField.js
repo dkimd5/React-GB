@@ -9,7 +9,10 @@ export const ChatField = ({ chatId }) => {
    const messages = useSelector(state => state.messages)
 
    const messageRender = messages[chatId]?.map((message, index) => (
-      <li className={ `item-list ${message.author === AUTHORS.HUMAN ? "human" : "bot"}` } key={ index }>{ message.author }: { message.text }</li>
+      <li className={ `item-list ${message.author === AUTHORS.HUMAN ? "human" : "bot"}` } key={ index }>
+         <span className="author-name">{ message.author }</span>
+         <p className="msg-text"> { message.text }</p>
+      </li>
    ));
 
    return (
