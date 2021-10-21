@@ -1,15 +1,15 @@
-import React, { useEffect, useState} from "react";
-
+import React, { useState } from "react";
 import { TextField, Button, Icon, makeStyles } from '@material-ui/core';
 import { AUTHORS } from "../../_utils/constants";
 
 const useStyles = makeStyles(() => ({
    button: {
-      padding: '16px',
+      padding: '15.68px',
+      background: '#FF527C',
    },
    textField: {
       marginRight: '10px',
-      width: '89%',
+      width: '85%',
    },
 }));
 
@@ -34,9 +34,11 @@ export const MessageField = ({ onAddMessage }) => {
          <TextField
             id="outlined-textarea"
             label="Your message"
-            placeholder="Placeholder"
+            placeholder="Text your message here..."
             multiline
             variant="outlined"
+            color="secondary"
+            fullWidth="false"
             value={ value }
             autoFocus={ true }
             onChange={ handleChange }
@@ -50,7 +52,7 @@ export const MessageField = ({ onAddMessage }) => {
             endIcon={ <Icon>send</Icon> }
          >
             Send
-      </Button>
+         </Button>
       </form>
    )
 }

@@ -1,0 +1,23 @@
+.addchat-wrp {
+   margin: 20px;
+   display: flex;
+   justify-content: space-between;
+}
+
+.chatlist-link {
+   display: block;
+}
+
+.chatlist-link:hover {
+   display: block;
+   background: #ff527c;
+}
+
+.link {
+   text-decoration: none;
+   color: black;
+
+   &:hover {
+      color: #fff;
+   }
+}

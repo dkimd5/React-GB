@@ -3,9 +3,9 @@ import { SEND_MESSAGE } from "../messages/actions";
 
 const initialState = {
    chatList: [
-      { name: 'Human', avatar: 'https://material-ui.com/static/images/avatar/1.jpg', id: 'chat1' },
-      { name: 'Bot', avatar: 'https://material-ui.com/static/images/avatar/2.jpg', id: 'chat2' },
-      { name: 'Alex', avatar: 'https://material-ui.com/static/images/avatar/3.jpg', id: 'chat3' },
+      { name: 'Human', avatar: '/src/images/human.jpg', id: 'chat1' },
+      { name: 'Bot', avatar: '/src/images/bot.jpg', id: 'chat2' },
+      { name: 'Alex', avatar: '/src/images/alex.jpg', id: 'chat3' },
    ],
    newMessageChatId: '',
 }

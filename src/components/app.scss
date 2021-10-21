@@ -1,13 +1,8 @@
-.container {
-   width: 90%;
-   margin: 0 auto;
+body {
+   background: url("../images/body-bg.jpeg") no-repeat center/cover;
 }
 
-.link {
-   text-decoration: none;
-   color: black;
-
-   &:hover {
-      color: lightblue;
-   }
+.container {
+   width: 70%;
+   margin: 0 auto;
 }
