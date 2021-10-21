@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { AUTHORS } from "../../_utils/constants";
-import "./chatField.scss";
+import "./styles.scss";
 
 
 export const ChatField = ({ chatId }) => {

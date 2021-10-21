@@ -1,8 +1,8 @@
 import React from "react";
-import { Header } from "./Header/Header";
-import { Messenger } from "./Messenger/Messenger";
+import { Header } from "./header";
+import { Messenger } from "./messenger";
 import "./reset.css";
-import "./app.scss";
+import "./styles.scss";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 
