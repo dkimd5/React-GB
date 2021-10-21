@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { makeStyles, List, ListItem, ListItemText, Avatar, ListItemAvatar, Divider, TextField, Button, IconButton } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { Link } from 'react-router-dom';
-import './chatList.scss';
+import './styles.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { addChat, deleteChat } from '../../../store/chats/actions';
 

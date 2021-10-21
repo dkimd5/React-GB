@@ -1,8 +1,8 @@
-import React, { useState, useCallback } from "react";
-import { ChatList } from "./ChatList/ChatList";
-import { MessageField } from "./MessageField/MessageField"
-import { ChatField } from "./ChatField/ChatField";
-import "./messenger.scss";
+import React, { useCallback } from "react";
+import { ChatList } from "./chatList";
+import { MessageField } from "./messageField"
+import { ChatField } from "./chatField";
+import "./styles.scss";
 import { useParams } from "react-router-dom";
 import { sendMessageWithThunk } from "../../store/messages/actions"
 import { useDispatch } from "react-redux";
