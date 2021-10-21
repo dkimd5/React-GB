@@ -38,7 +38,7 @@ export const MessageField = ({ onAddMessage }) => {
             multiline
             variant="outlined"
             color="secondary"
-            fullWidth="false"
+            // fullWidth="false"
             value={ value }
             autoFocus={ true }
             onChange={ handleChange }
