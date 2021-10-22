@@ -3,7 +3,7 @@ import { SEND_MESSAGE } from "../messages/actions";
 
 const initialState = {
    chatList: [
-      { name: 'Human', avatar: '/public/images/Alex.jpg', id: 'chat1' },
+      { name: 'Human', avatar: 'https://cspromogame.ru//storage/upload_images/avatars/856.jpg', id: 'chat1' },
       { name: 'Bot', avatar: 'https://cspromogame.ru//storage/upload_images/avatars/3561.jpg', id: 'chat2' },
       { name: 'Alex', avatar: 'https://cspromogame.ru//storage/upload_images/avatars/1977.jpg', id: 'chat3' },
    ],
