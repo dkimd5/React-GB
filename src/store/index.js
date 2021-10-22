@@ -17,7 +17,7 @@ const persistedReducer = persistReducer(persistConfig, combRed)
 
 export const store = createStore(
    persistedReducer,
-   composeEnhancers(applyMiddleware(thunk))
+   applyMiddleware(thunk)
 );
 
 export const persistor = persistStore(store)
