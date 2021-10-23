@@ -5,8 +5,14 @@ const path = require('path');
 
 const port = process.env.PORT || 3001;
 
+const csp = "default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com"
+
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static('build'));
+  app.use(express.static('build', {
+    setHeaders: function (res, path) {
+      res.set('Content-Security-Policy', csp)
+    },
+  }));
   app.get('*', (req, res) => {
     req.sendFile(path.resolve(__dirname, 'build', 'index.html'));
   })
